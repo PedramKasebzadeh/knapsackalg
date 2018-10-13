@@ -1,15 +1,2 @@
-#R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
 language: r
-sudo: false
 cache: packages
-
-r_github_packages:
-  - hadley/devtools@efa894ffa
-
-env:
-  global:
-   -  NOT_CRAN="true"
-  matrix:
-    - SPARKLINGWATER_VERSION="2.0.5"
-    - SPARKLINGWATER_VERSION="1.6.8"
