@@ -7,6 +7,8 @@
 #' 
 #' @examples knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
 #' @examples knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
+#' @examples greedy_knapsack(x = knapsack_objects[1:8,], W = 3500)
+#' @examples brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
 #' 
 #' @export knapsack_dynamic
 
@@ -130,7 +132,8 @@ greedy_knapsack <- function(x,W){
 
 
 #ptm <- proc.time()
-#greedy_knapsack(X = knapsack_objects[1:1000000,], W = 3500)
+#st <- system.time(brute_force_knapsack(x = knapsack_objects[1:16,], W = 2000))
+#st[2]
 #proc.time() - ptm
 
 # time

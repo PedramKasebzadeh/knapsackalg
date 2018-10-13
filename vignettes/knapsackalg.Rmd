@@ -94,6 +94,7 @@ knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
 #toc()
 ```
 
+
 ### References
 
 1. "Description of Knapsack problem"
