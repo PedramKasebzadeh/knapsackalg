@@ -132,7 +132,7 @@ greedy_knapsack <- function(x,W){
 
 
 #ptm <- proc.time()
-#st <- system.time(brute_force_knapsack(x = knapsack_objects[1:16,], W = 2000))
+#brute_force_knapsack(x = knapsack_objects[1:99999,], W = 2000)
 #st[2]
 #proc.time() - ptm
 
@@ -140,11 +140,11 @@ greedy_knapsack <- function(x,W){
 #user  system elapsed 
 #1.22    0.04    1.27 
 #set.seed(42)
-#n <- 2000
+#n <- 99999
 #knapsack_objects <- data.frame(
 #  w=sample(1:4000, size = n, replace = TRUE),
 #  v=runif(n = n, 0, 10000))
-#  brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+ # brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500))
   
 
 #set.seed(42)
