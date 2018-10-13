@@ -8,7 +8,7 @@
 #' @examples knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
 #' @examples knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
 #' 
-#'
+#' @export knapsack_dynamic
 
 
 knapsack_dynamic <- function(x, W){
@@ -48,27 +48,17 @@ knapsack_dynamic <- function(x, W){
 }
 
 #Example dataframe
-set.seed(42)
-n <- 2000
-knapsack_objects <-
-  data.frame(
-    w=sample(1:4000, size = n, replace = TRUE),
-    v=runif(n = n, 0, 10000)
-  )
 
 #system.time({knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)})
 
 #run time of a chunk of code
-library(tictoc)
-tic("sleeping")   # refer https://www.r-bloggers.com/5-ways-to-measure-running-time-of-r-code/
-print("falling asleep...")
-knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
-print("...waking up")
-toc()
+
 
 ###################################################################
 
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
+#' @export brute_force_knapsack
+
 brute_force_knapsack <- function(x,W)
 {stopifnot(is.data.frame(x),is.numeric(W))
   value <- 0
@@ -99,35 +89,9 @@ brute_force_knapsack <- function(x,W)
 ######################################################
 
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
-brute_force_knapsack <- function(x,W)
-{stopifnot(is.data.frame(x),is.numeric(W))
-  value <- 0
-  elem <-c()
-  
-  for(i in 1:(2^nrow(x)-1))
-  {wsum <- 0
-  vsum <- 0
-  loop <-c()
-  binary <- intToBits(i)
-  
-  for(j in 1:length(binary))
-  {if( binary[j] == TRUE )
-  {
-    wsum <- wsum + x[j,1]
-    vsum <- vsum + x[j,2]
-    loop <- c(loop,j)
-  }
-    
-  }
-  
-  if(vsum > value && wsum <= W)
-  {value<-vsum 
-  elem<-loop}}
-  
-  return(list(value=round(unname(value)),elements=elem))
-}
 
 ###########################################################
+#' @export greedy_knapsack
 
 greedy_knapsack <- function(X,W){
   df <- transform(X, c= v/w )
