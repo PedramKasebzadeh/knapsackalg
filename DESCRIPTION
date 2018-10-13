@@ -9,8 +9,5 @@ Description: This package solves knapsack problem by useing multiple algorithems
 License: GPL-2 
 LazyData: true
 Encoding: UTF-8
-Suggests: testthat,
-    knitr,
-    rmarkdown
+Suggests: testthat
 RoxygenNote: 6.1.0
-VignetteBuilder: knitr
