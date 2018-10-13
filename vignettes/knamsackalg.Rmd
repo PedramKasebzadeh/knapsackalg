@@ -1,0 +1,109 @@
+---
+title: "Knapsack problem"
+author: "Roshni , Mariano and Pedram"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Google API}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette summarizes three functions of Knapsack package and gives examples on how to use them.
+The 3 functions are,
+
+1. Brute force algorithm
+2. Dynamic algorithm
+3. Greedy algorithm
+
+### Dynamic algorithm
+
+The function knapsack_dynamic takes a data.frame x with two variables v and w and returns the maximum knapsack value and which elements (rows in the data.frame).
+
+```{r}
+knapsack_dynamic <- function(x, W){
+  stopifnot(is.data.frame(x) == TRUE)
+  stopifnot(is.numeric(W) == TRUE)
+  n <- nrow(x)
+  w <- x[[1]]  #weights
+  v <- x[[2]]  #values
+  capacity <- W     #capacity of knapsack
+  elem <- c()
+  m <- matrix(0,nrow = n+1,ncol = capacity+1)
+ 
+  #to return the max value 
+  for (i in 2:n){
+    for (j in 1:capacity){
+      if (j > w[i]) 
+        m[i, j] <- max(m[i-1, j-w[i]] + v[i], m[i-1, j])
+      else 
+        m[i,j] <- m[i-1, j]
+    }
+  }
+  
+  val <- m[i, j]
+  value <- round(val)
+  
+  #to print the elements
+  while(capacity>0 && n-1>0){
+    if(m[n,capacity]!=m[n-1,capacity]){
+      elem<-c(elem,n)
+      capacity<-capacity-w[n]
+      elements <- sort(elem)
+    }
+    n<-n-1
+  }
+  return(list("value"=value,"elements"=elements))
+  
+}
+```
+
+### Examples
+
+#### For brute force method
+
+```{r}
+set.seed(42)
+n <- 2000
+knapsack_objects <-
+  data.frame(
+    w=sample(1:4000, size = n, replace = TRUE),
+    v=runif(n = n, 0, 10000)
+  )
+#brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+```
+
+
+#### For dynamic approach
+
+```{r}
+knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
+```
+
+#### For greedy approach
+```{r}
+#greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+```
+
+### Run time calculation
+
+```{r}
+#library(tictoc)
+#tic()   # refer https://www.r-bloggers.com/5-ways-to-measure-running-time-of-r-code/
+#knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
+#toc()
+```
+
+### References
+
+1. "Description of Knapsack problem"
+([via](https://en.wikipedia.org/wiki/Knapsack_problem))
+
+2. "Pseudocode to implement dynamic algorithm"
+([via](https://en.wikipedia.org/wiki/Knapsack_problem#0.2F1_knapsack_problem))
+
+3. "To implement greedy approach"
+([via](https://en.wikipedia.org/wiki/Knapsack_problem#Greedy_approximation_algorithm))
+
+4. "To measure the run time of code chunk"
+([via](https://www.r-bloggers.com/5-ways-to-measure-running-time-of-r-code/))

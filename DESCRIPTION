@@ -1,0 +1,16 @@
+Package: knapsackalg
+Type: Package
+Title: Solves knapsack problem 
+Version: 1.0
+Date: 2018-10-13
+Author: Mariano, Pedram and Roshni
+Maintainer: <pedka102@student.liu.se>
+Description: This package solves knapsack problem by useing multiple algorithems implemented in different functions.
+License: GPL-2 
+LazyData: true
+Encoding: UTF-8
+Suggests: testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.1.0
+VignetteBuilder: knitr
