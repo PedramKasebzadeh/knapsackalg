@@ -12,8 +12,8 @@
 
 
 knapsack_dynamic <- function(x, W){
-  stopifnot(is.data.frame(x) == TRUE)
-  stopifnot(is.numeric(W) == TRUE)
+  stopifnot(is.data.frame(x))
+  stopifnot(W>0)
   n <- nrow(x)
   w <- x[[1]]  #weights
   v <- x[[2]]  #values
@@ -60,7 +60,9 @@ knapsack_dynamic <- function(x, W){
 #' @export brute_force_knapsack
 
 brute_force_knapsack <- function(x,W)
-{stopifnot(is.data.frame(x),is.numeric(W))
+{
+  stopifnot(is.data.frame(x))
+  stopifnot(W>0)
   value <- 0
   elem <-c()
   
@@ -93,8 +95,10 @@ brute_force_knapsack <- function(x,W)
 ###########################################################
 #' @export greedy_knapsack
 
-greedy_knapsack <- function(X,W){
-  df <- transform(X, c= v/w )
+greedy_knapsack <- function(x,W){
+  stopifnot(is.data.frame(x))
+  stopifnot(W>0)
+  df <- transform(x, c= v/w )
   df<- df[order(df$c,decreasing = TRUE),]
   w8  <- vector()
   j=0
@@ -114,8 +118,8 @@ greedy_knapsack <- function(X,W){
     Val <- head(Val,-1)
   }
   Val
-  elements <- append(elements,which(X$w  %in% w8))
-  results <- list("value"= sum(Val),"elements"=elements,"weight"=sum(w8))
+  elements <- append(elements,which(x$w  %in% w8))
+  results <- list("value"= sum(Val),"elements"=elements)
   return(results)
   
 }
@@ -132,3 +136,17 @@ greedy_knapsack <- function(X,W){
 # time
 #user  system elapsed 
 #1.22    0.04    1.27 
+#set.seed(42)
+#n <- 2000
+#knapsack_objects <- data.frame(
+#  w=sample(1:4000, size = n, replace = TRUE),
+#  v=runif(n = n, 0, 10000))
+#  brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+  
+
+#set.seed(42)
+#n <- 2000
+#knapsack_objects <- data.frame(
+  #w=sample(1:4000, size = n, replace = TRUE),
+ # v=runif(n = n, 0, 10000))
+#greedy_knapsack(x = knapsack_objects[1:8,], W = 3500)
