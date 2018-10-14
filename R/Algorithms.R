@@ -1,4 +1,5 @@
 #' Knapsack problem using dynamic algortihm
+#'  @title "knapsack_dynamic"
 #'  @name "knapsackalg
 #' @param "x" is a  data.frame
 #'         "W" is a numeric
@@ -57,7 +58,8 @@ knapsack_dynamic <- function(x, W){
 ###################################################################
 
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
-#' 
+#' @title "brute_force_knapsack"
+#' @export
 
 brute_force_knapsack <- function(x,W)
 {
@@ -93,7 +95,8 @@ brute_force_knapsack <- function(x,W)
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
 
 ###########################################################
-#' 
+#' @title "greedy_knapsack"
+#' @export
 
 greedy_knapsack <- function(x,W){
   stopifnot(is.data.frame(x))

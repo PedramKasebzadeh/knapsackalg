@@ -3,6 +3,7 @@
 \name{knapsack_dynamic}
 \alias{knapsack_dynamic}
 \title{Knapsack problem using dynamic algortihm
+ @title "knapsack_dynamic"
  @name "knapsackalg}
 \usage{
 knapsack_dynamic(x, W)
@@ -16,6 +17,7 @@ the maximum values and elements to be carried by knapsack
 }
 \description{
 Knapsack problem using dynamic algortihm
+ @title "knapsack_dynamic"
  @name "knapsackalg
 }
 \examples{
