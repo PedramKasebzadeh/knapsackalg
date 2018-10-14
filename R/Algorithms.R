@@ -10,7 +10,7 @@
 #' @examples greedy_knapsack(x = knapsack_objects[1:8,], W = 3500)
 #' @examples brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
 #' 
-#' @export knapsack_dynamic
+#' @export 
 
 
 knapsack_dynamic <- function(x, W){
