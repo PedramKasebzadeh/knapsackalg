@@ -19,7 +19,7 @@ The 3 functions are,
 
 These functions takes a data.frame x with two variables v and w and returns the maximum knapsack value and which elements (rows in the data.frame).
 
-### Brute force algorithm
+### 1.Brute force algorithm
 
 ```{r}
 brute_force_knapsack <- function(x,W)
@@ -65,7 +65,7 @@ brute_force_knapsack(x = knapsack_objects[1:12,], W = 2000)
 proc.time() - ptm
 ```
 
-### Dynamic algorithm
+### 2.Dynamic algorithm
 
 ```{r}
 knapsack_dynamic <- function(x, W){
@@ -117,7 +117,7 @@ knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
 proc.time() - ptm
 ```
 
-### Greedy approximation algorithm
+### 3.Greedy approximation algorithm
 
 ```{r}
 greedy_knapsack <- function(x,W){
