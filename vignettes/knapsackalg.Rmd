@@ -1,10 +1,11 @@
 ---
-title: "Knapsack problem"
+title: "Knapsack package"
 author: "Roshni , Mariano and Pedram"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+  #code_folding: show
 vignette: >
-  %\VignetteIndexEntry{Google API}
+  %\VignetteIndexEntry{Knapsack Package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,11 +15,57 @@ The 3 functions are,
 
 1. Brute force algorithm
 2. Dynamic algorithm
-3. Greedy algorithm
+3. Greedy approximation algorithm
+
+These functions takes a data.frame x with two variables v and w and returns the maximum knapsack value and which elements (rows in the data.frame).
+
+### Brute force algorithm
+
+```{r}
+brute_force_knapsack <- function(x,W)
+{
+  stopifnot(is.data.frame(x))
+  stopifnot(W>0)
+  value <- 0
+  elem <-c()
+  
+  for(i in 1:(2^nrow(x)-1))
+  {wsum <- 0
+  vsum <- 0
+  loop <-c()
+  binary <- intToBits(i)
+  
+  for(j in 1:length(binary))
+  {if( binary[j] == TRUE )
+  {
+    wsum <- wsum + x[j,1]
+    vsum <- vsum + x[j,2]
+    loop <- c(loop,j)
+  }
+    
+  }
+  
+  if(vsum > value && wsum <= W)
+  {value<-vsum 
+  elem<-loop}}
+  
+  return(list(value=round(unname(value)),elements=elem))
+}
+```
+
+#### Run time for 16 objects
+
+```{r}
+ptm <- proc.time()
+n <- 16
+knapsack_objects <- data.frame(
+  w=sample(1:4000, size = n, replace = TRUE),
+  v=runif(n = n, 0, 10000))
+brute_force_knapsack(x = knapsack_objects[1:12,], W = 2000)
+proc.time() - ptm
+```
 
 ### Dynamic algorithm
-
-The function knapsack_dynamic takes a data.frame x with two variables v and w and returns the maximum knapsack value and which elements (rows in the data.frame).
 
 ```{r}
 knapsack_dynamic <- function(x, W){
@@ -58,36 +105,88 @@ knapsack_dynamic <- function(x, W){
 }
 ```
 
+#### Run time for 500 objects
+
+```{r}
+ptm <- proc.time()
+n <- 500
+knapsack_objects <- data.frame(
+  w=sample(1:4000, size = n, replace = TRUE),
+  v=runif(n = n, 0, 10000))
+knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
+proc.time() - ptm
+```
+
+### Greedy approximation algorithm
+
+```{r}
+greedy_knapsack <- function(x,W){
+  stopifnot(is.data.frame(x))
+  stopifnot(W>0)
+  df <- transform(x, c= v/w )
+  df<- df[order(df$c,decreasing = TRUE),]
+  w8  <- vector()
+  j=0
+  Val <- vector()
+  elements <- vector()
+  while(sum(w8) <= W)
+  {
+    w8 <-  append(w8,df$w[j])
+    Val <- append(Val,df$v[j])
+    j <- j+1
+    
+  }
+  
+  if(sum(w8)> W)
+  { 
+    w8 <- head(w8,-1)
+    Val <- head(Val,-1)
+  }
+  Val
+  elements <- append(elements,which(x$w  %in% w8))
+  results <- list("value"= sum(Val),"elements"=elements)
+  return(results)
+  
+}
+```
+
+#### Run time for 1000000 objects
+
+```{r}
+ptm <- proc.time()
+n <- 1000000
+knapsack_objects <- data.frame(
+  w=sample(1:4000, size = n, replace = TRUE),
+  v=runif(n = n, 0, 10000))
+greedy_knapsack(x = knapsack_objects[1:1200,], W = 2000)
+proc.time() - ptm
+```
+
 ### Examples
 
 #### For brute force method
 
 ```{r}
-set.seed(42)
-n <- 2000
-knapsack_objects <-
-  data.frame(
-    w=sample(1:4000, size = n, replace = TRUE),
-    v=runif(n = n, 0, 10000)
-  )
 #brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+#brute_force_knapsack(x = knapsack_objects[1:12,], W = 2000)
 ```
 
 
 #### For dynamic approach
 
 ```{r}
-knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
+#knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
+#knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
 ```
 
 #### For greedy approach
 ```{r}
 #greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+#greedy_knapsack(x = knapsack_objects[1:1200,], W = 2000)
 ```
 
-### Run time calculation
 
-```{r}
+```{r echo=FALSE}
 #library(tictoc)
 #tic()   # refer https://www.r-bloggers.com/5-ways-to-measure-running-time-of-r-code/
 #knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
@@ -95,7 +194,7 @@ knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
 ```
 
 
-### References
+### See also
 
 1. "Description of Knapsack problem"
 ([via](https://en.wikipedia.org/wiki/Knapsack_problem))
