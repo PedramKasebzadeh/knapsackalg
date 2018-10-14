@@ -8,8 +8,6 @@
 #' @examples knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
 #' @examples greedy_knapsack(x = knapsack_objects[1:8,], W = 3500)
 #' @examples brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
-#' @export brute_force_knapsack
-#' @export greedy_knapsack
 #' @export 
 
 
