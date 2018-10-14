@@ -13,7 +13,6 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{knapsackalg}
 \packageIndices{knapsackalg}
-there are several functions
 }
 \author{
 \packageAuthor{knapsackalg}

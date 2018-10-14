@@ -1,14 +1,18 @@
 #' Knapsack problem using dynamic algortihm
-#'  @title "knapsack_dynamic"
-#'  @name "knapsackalg
-#' @param "x" is a  data.frame
-#'         "W" is a numeric
+#' 
+#' @name "Lab 6 package"
+#'  
+#'  
+#'  
+#' @param  x A data.frame 
+#' 
+#' @param W A number 
+#' 
 #' 
 #' @return the maximum values and elements to be carried by knapsack
-#' @examples knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
-#' @examples knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
-#' @examples greedy_knapsack(x = knapsack_objects[1:8,], W = 3500)
-#' @examples brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+#' @examples
+#'  knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
+#' 
 #' @export 
 
 
@@ -58,8 +62,20 @@ knapsack_dynamic <- function(x, W){
 ###################################################################
 
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
-#' @title "brute_force_knapsack"
-#' @export
+#' this function uses brute force as an algorithem
+#' 
+#  @param  data.set 
+#  @param  numeric
+#' 
+#' @param  x A data.frame.
+#' 
+#' @param W A numeric. 
+#' 
+#' 
+#' @examples 
+#'  brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+#' @return  the calculated value by this algorithem  
+#' 
 
 brute_force_knapsack <- function(x,W)
 {
@@ -95,8 +111,16 @@ brute_force_knapsack <- function(x,W)
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
 
 ###########################################################
-#' @title "greedy_knapsack"
-#' @export
+#' This function uses greedy algorithem
+#' 
+#' @param  x A data.frame. 
+#' 
+#' @param W A numeric .
+#' 
+#' 
+#' @return it returns the calculated value and elements
+#' 
+#'   
 
 greedy_knapsack <- function(x,W){
   stopifnot(is.data.frame(x))

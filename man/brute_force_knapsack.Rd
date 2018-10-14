@@ -2,10 +2,21 @@
 % Please edit documentation in R/Algorithms.R
 \name{brute_force_knapsack}
 \alias{brute_force_knapsack}
-\title{"brute_force_knapsack"}
+\title{this function uses brute force as an algorithem}
 \usage{
 brute_force_knapsack(x, W)
 }
+\arguments{
+\item{x}{A data.frame.}
+
+\item{W}{A numeric.}
+}
+\value{
+the calculated value by this algorithem
+}
 \description{
-"brute_force_knapsack"
+this function uses brute force as an algorithem
+}
+\examples{
+ brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
 }

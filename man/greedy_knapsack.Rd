@@ -2,10 +2,18 @@
 % Please edit documentation in R/Algorithms.R
 \name{greedy_knapsack}
 \alias{greedy_knapsack}
-\title{"greedy_knapsack"}
+\title{This function uses greedy algorithem}
 \usage{
 greedy_knapsack(x, W)
 }
+\arguments{
+\item{x}{A data.frame.}
+
+\item{W}{A numeric .}
+}
+\value{
+it returns the calculated value and elements
+}
 \description{
-"greedy_knapsack"
+This function uses greedy algorithem
 }
