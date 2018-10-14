@@ -186,14 +186,6 @@ proc.time() - ptm
 ```
 
 
-```{r echo=FALSE}
-#library(tictoc)
-#tic()   # refer https://www.r-bloggers.com/5-ways-to-measure-running-time-of-r-code/
-#knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
-#toc()
-```
-
-
 ### See also
 
 1. "Description of Knapsack problem"
