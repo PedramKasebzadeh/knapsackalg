@@ -1,7 +1,7 @@
 #' Knapsack problem using dynamic algortihm
 #'  @name "knapsackalg
-#' @param x a data.frame with two variables v and w (values and weights)
-#' @param W knapsack size (Max weight capacity)
+#' @param "x" is a  data.frame
+#'         "W" is a numeric
 #' 
 #' @return the maximum values and elements to be carried by knapsack
 #' @examples knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)

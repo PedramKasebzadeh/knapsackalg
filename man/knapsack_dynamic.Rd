@@ -8,9 +8,8 @@
 knapsack_dynamic(x, W)
 }
 \arguments{
-\item{x}{a data.frame with two variables v and w (values and weights)}
-
-\item{W}{knapsack size (Max weight capacity)}
+\item{"x"}{is a  data.frame
+"W" is a numeric}
 }
 \value{
 the maximum values and elements to be carried by knapsack
