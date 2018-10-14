@@ -17,6 +17,3 @@ the calculated value by this algorithem
 \description{
 this function uses brute force as an algorithem
 }
-\examples{
- brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
-}

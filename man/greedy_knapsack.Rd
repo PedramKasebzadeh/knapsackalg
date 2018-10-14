@@ -13,6 +13,8 @@ greedy_knapsack(x, W)
 }
 \value{
 it returns the calculated value and elements
+
+  @export
 }
 \description{
 This function uses greedy algorithem

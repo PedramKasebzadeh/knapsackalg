@@ -10,8 +10,6 @@
 #' 
 #' 
 #' @return the maximum values and elements to be carried by knapsack
-#' @examples
-#'  knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
 #' 
 #' @export 
 
@@ -72,10 +70,8 @@ knapsack_dynamic <- function(x, W){
 #' @param W A numeric. 
 #' 
 #' 
-#' @examples 
-#'  brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
 #' @return  the calculated value by this algorithem  
-#' 
+#' @export
 
 brute_force_knapsack <- function(x,W)
 {
@@ -117,14 +113,16 @@ brute_force_knapsack <- function(x,W)
 #' 
 #' @param W A numeric .
 #' 
-#' 
+#' @import utils
 #' @return it returns the calculated value and elements
 #' 
-#'   
+#'   @export
 
 greedy_knapsack <- function(x,W){
   stopifnot(is.data.frame(x))
   stopifnot(W>0)
+  v <- 0
+  w <- 0
   df <- transform(x, c= v/w )
   df<- df[order(df$c,decreasing = TRUE),]
   w8  <- vector()
@@ -153,7 +151,7 @@ greedy_knapsack <- function(x,W){
 
 
 
-#greedy_knapsack(Z = knapsack_objects[1:1200,], W = 2000)
+#greedy_knapsack(x = knapsack_objects[1:1200,], W = 2000)
 
 
 #ptm <- proc.time()
