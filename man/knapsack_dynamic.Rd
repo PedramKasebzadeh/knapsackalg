@@ -22,5 +22,4 @@ knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
 knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
 greedy_knapsack(x = knapsack_objects[1:8,], W = 3500)
 brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
-
 }
