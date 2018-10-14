@@ -2,7 +2,8 @@
 % Please edit documentation in R/Algorithms.R
 \name{knapsack_dynamic}
 \alias{knapsack_dynamic}
-\title{Knapsack problem using dynamic algortihm}
+\title{Knapsack problem using dynamic algortihm
+ @name "knapsackalg}
 \usage{
 knapsack_dynamic(x, W)
 }
@@ -16,6 +17,7 @@ the maximum values and elements to be carried by knapsack
 }
 \description{
 Knapsack problem using dynamic algortihm
+ @name "knapsackalg
 }
 \examples{
 knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
