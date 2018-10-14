@@ -59,7 +59,7 @@ knapsack_dynamic <- function(x, W){
 ###################################################################
 
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
-#' @export brute_force_knapsack
+#' 
 
 brute_force_knapsack <- function(x,W)
 {
@@ -95,7 +95,7 @@ brute_force_knapsack <- function(x,W)
 #using proc.time() for n=16 it took: User:25.694. System:0.414. Elapsed:29.748
 
 ###########################################################
-#' @export greedy_knapsack
+#' 
 
 greedy_knapsack <- function(x,W){
   stopifnot(is.data.frame(x))
