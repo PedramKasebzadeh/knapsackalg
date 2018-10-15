@@ -9,6 +9,8 @@ Description: This package solves knapsack problem by useing multiple algorithems
 License: GPL-2 
 LazyData: true
 Encoding: UTF-8
+imports:
+      profvis
 Suggests: testthat,
     knitr,
     rmarkdown

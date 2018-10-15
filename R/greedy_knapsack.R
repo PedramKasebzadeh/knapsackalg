@@ -1,13 +1,12 @@
-#' This function uses greedy algorithem
+#' this function uses greedy algorithem
 #' 
 #' @param  x A data.frame. 
 #' 
 #' @param W A numeric .
 #' 
-#' @import utils
 #' @return it returns the calculated value and elements
 #' 
-#'   @export
+#' @export
 
 
 greedy_knapsack <- function(x,W){

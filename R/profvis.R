@@ -8,7 +8,7 @@ knapsack_objects <- data.frame(
 )
 # greedy_knapsack
 profvis({
-  pause(0.001)
+  pause(0.01)
   x = knapsack_objects[1:1200,]
   W = 3500
   v <- 0
@@ -35,13 +35,13 @@ profvis({
   Val
   elements <- append(elements,which(x$w  %in% w8))
   results <- list("value"= sum(Val),"elements"=elements)
-  pause(0.001)
+  pause(0.01)
   
 })
 
 # brute_force_knapsack
 profvis({
-  pause(0.001)
+  pause(0.01)
   
   x = knapsack_objects[1:8,]
   W = -3500
@@ -68,13 +68,13 @@ for(j in 1:length(binary))
 if(vsum > value && wsum <= W)
 {value<-vsum 
 elem<-loop}}
-pause(0.001)
+pause(0.01)
 
 })
 
 #knapsack_dynamic
 profvis({
-  pause(0.001)
+  pause(0.01)
   
   x = knapsack_objects[1:12,]
   W = 2000
@@ -109,7 +109,7 @@ profvis({
     }
     n<-n-1
   }
-  pause(0.001)
+  pause(0.01)
   
 }
 )

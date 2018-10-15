@@ -2,7 +2,7 @@
 % Please edit documentation in R/greedy_knapsack.R
 \name{greedy_knapsack}
 \alias{greedy_knapsack}
-\title{This function uses greedy algorithem}
+\title{this function uses greedy algorithem}
 \usage{
 greedy_knapsack(x, W)
 }
@@ -13,9 +13,7 @@ greedy_knapsack(x, W)
 }
 \value{
 it returns the calculated value and elements
-
-  @export
 }
 \description{
-This function uses greedy algorithem
+this function uses greedy algorithem
 }
