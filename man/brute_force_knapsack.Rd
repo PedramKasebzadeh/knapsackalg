@@ -9,9 +9,7 @@ brute_force_knapsack(x, W)
 \arguments{
 \item{x}{A data.frame.}
 
-\item{W}{A numeric. 
-
-1}
+\item{W}{A numeric.}
 }
 \value{
 the calculated value by this algorithem

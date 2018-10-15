@@ -1,7 +1,6 @@
 #' Knapsack problem using dynamic algortihm
 #' 
-#' @name "Lab 6 package"
-#'  
+#'   
 #'  
 #'  
 #' @param  x A data.frame 

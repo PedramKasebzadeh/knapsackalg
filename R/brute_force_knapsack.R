@@ -1,14 +1,13 @@
 #' this function uses brute force as an algorithem
 #' 
-#  @param  data.set 
-#  @param  numeric
 #' 
 #' @param  x A data.frame.
 #' 
 #' @param W A numeric. 
 #' 
-#' 1
-#' @return  the calculated value by this algorithem  
+#' 
+#' @return  the calculated value by this algorithem 
+#'  
 #' @export
 
 brute_force_knapsack <- function(x,W)

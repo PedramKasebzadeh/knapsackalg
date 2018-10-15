@@ -1,3 +1,4 @@
+
 library(profvis)
 set.seed(42)
 n <- 2000
@@ -10,8 +11,6 @@ profvis({
   pause(.1)
   x = knapsack_objects[1:1200,]
   W = 3500
-  stopifnot(is.data.frame(x))
-  stopifnot(W>0)
   v <- 0
   w <- 0
   df <- transform(x, c= v/w )
@@ -47,7 +46,6 @@ profvis({
   x = knapsack_objects[1:8,]
   W = -3500
 stopifnot(is.data.frame(x))
-stopifnot(W>0)
 value <- 0
 elem <-c()
 
@@ -81,7 +79,6 @@ profvis({
   x = knapsack_objects[1:12,]
   W = 2000
   stopifnot(is.data.frame(x))
-  stopifnot(W>0)
   n <- nrow(x)
   w <- x[[1]]  #weights
   v <- x[[2]]  #values
