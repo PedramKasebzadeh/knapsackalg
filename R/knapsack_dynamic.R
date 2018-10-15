@@ -1,3 +1,23 @@
+#' Knapsack problem using dynamic algortihm
+#' 
+#' @name "Lab 6 package"
+#'  
+#'  
+#'  
+#' @param  x A data.frame 
+#' 
+#' @param W A number 
+#' 
+#' 
+#' @return the maximum values and elements to be carried by knapsack
+#' 
+#' @export 
+
+
+
+
+
+
 knapsack_dynamic <- function(x, W){
   stopifnot(is.data.frame(x))
   stopifnot(W>0)
