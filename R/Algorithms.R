@@ -15,6 +15,7 @@
 
 
 knapsack_dynamic <- function(x, W){
+
   stopifnot(is.data.frame(x))
   stopifnot(W>0)
   n <- nrow(x)
@@ -47,7 +48,7 @@ knapsack_dynamic <- function(x, W){
     n<-n-1
   }
   return(list("value"=value,"elements"=elements))
-  
+
 }
 
 #Example dataframe
@@ -69,12 +70,13 @@ knapsack_dynamic <- function(x, W){
 #' 
 #' @param W A numeric. 
 #' 
-#' 
+#' 1
 #' @return  the calculated value by this algorithem  
 #' @export
 
 brute_force_knapsack <- function(x,W)
 {
+
   stopifnot(is.data.frame(x))
   stopifnot(W>0)
   value <- 0
@@ -119,6 +121,7 @@ brute_force_knapsack <- function(x,W)
 #'   @export
 
 greedy_knapsack <- function(x,W){
+
   stopifnot(is.data.frame(x))
   stopifnot(W>0)
   v <- 0
