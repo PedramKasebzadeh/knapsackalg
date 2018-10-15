@@ -1,9 +1,9 @@
-#' Knapsack problem using dynamic algortihm
+#' Knapsack problem using dynamic algorithm
 #' 
 #'   
 #'  
 #'  
-#' @param  x A data.frame 
+#' @param  x A data.frame with two variables v and w (values and weights)
 #' 
 #' @param W A number 
 #' 
