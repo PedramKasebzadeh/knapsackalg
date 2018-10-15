@@ -1,3 +1,15 @@
+#' This function uses greedy algorithem
+#' 
+#' @param  x A data.frame. 
+#' 
+#' @param W A numeric .
+#' 
+#' @import utils
+#' @return it returns the calculated value and elements
+#' 
+#'   @export
+
+
 greedy_knapsack <- function(x,W){
 
   stopifnot(is.data.frame(x))
